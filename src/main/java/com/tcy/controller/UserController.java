@@ -3,6 +3,7 @@ package com.tcy.controller;
 import com.tcy.domain.User;
 import com.tcy.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,12 +26,12 @@ public class UserController {
     }
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public int saveUser(@RequestBody User user) {
+    public int saveUser(@RequestBody @Validated({User.Add.class}) User user) {
         return userService.saveUser(user);
     }
 
     @RequestMapping(value = "/", method = RequestMethod.PUT)
-    public int updateUser(@RequestBody User user) {
+    public int updateUser(@RequestBody @Validated({User.Update.class}) User user) {
         return userService.updateUser(user);
     }
 
