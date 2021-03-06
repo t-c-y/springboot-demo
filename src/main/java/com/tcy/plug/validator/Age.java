@@ -12,8 +12,9 @@ import java.lang.annotation.*;
 @Target({ElementType.ANNOTATION_TYPE, ElementType.METHOD, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Age {
-    String message() default "年龄是非法的，最大值是{max}岁";
+    String message() default "年龄是非法的，最小值是{min}岁，最大值是{max}岁";
     int max() default 100;
+    int min() default 1;
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 }

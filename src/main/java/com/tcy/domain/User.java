@@ -18,7 +18,7 @@ public class User {
     @Size(min = 2, max = 20, groups = {Add.class, Update.class})
     private String name;
 //    @Range(min = 1, max = 120, groups = {Add.class, Update.class})
-    @Age(max = 120, groups = {Add.class, Update.class})
+    @Age(min = 2, max = 120, groups = {Add.class, Update.class})
     private Integer age;
 
     public Long getId() {
