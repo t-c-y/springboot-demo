@@ -1,5 +1,6 @@
 package com.tcy.domain;
 
+import com.tcy.plug.validator.Age;
 import org.hibernate.validator.constraints.Range;
 
 import javax.validation.constraints.NotNull;
@@ -16,7 +17,8 @@ public class User {
     private Long id;
     @Size(min = 2, max = 20, groups = {Add.class, Update.class})
     private String name;
-    @Range(min = 1, max = 120, groups = {Add.class, Update.class})
+//    @Range(min = 1, max = 120, groups = {Add.class, Update.class})
+    @Age(max = 120, groups = {Add.class, Update.class})
     private Integer age;
 
     public Long getId() {
