@@ -4,6 +4,9 @@ import com.tcy.domain.User;
 
 import java.util.List;
 
+/**
+ * @author tongchengyu
+ */
 public interface UserService {
 
     List<User> listUser();
