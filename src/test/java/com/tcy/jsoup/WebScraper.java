@@ -20,8 +20,7 @@ public class WebScraper {
     private static void getText() {
         try {
             // 目标网页URL
-//            String url = "https://www.ssydt.com/article/68081";
-            String url = "https://www.ssydt.com/article/68225";
+            String url = "https://www.ssydt.com/article/68931";
             // 使用Jsoup连接到网页
             Document doc = Jsoup.connect(url).get();
             // 使用选择器提取你想要的内容，例如页面的标题
@@ -31,7 +30,7 @@ public class WebScraper {
             System.out.println(doc.body().text());
             String html = doc.body().html();
             System.out.println("1:" + html);
-            html = html.substring(html.indexOf("国内新闻</b><b></b></h2>"));
+            html = html.substring(html.indexOf("国内新闻"));
             html = html.substring(0, html.indexOf("</div> <button type=\"button\" class=\"el-button article-test-btn el-button--default is-round\" data-v-049854d5><!----><!----><span>开始本月时政试题测评</span></button>"));
 
             System.out.println("2:" + html);
@@ -67,7 +66,9 @@ public class WebScraper {
             html = html.replaceAll("<p class=\"MsoNormal\">&nbsp;</p>", "");
             html = html.replaceAll("<p class=\"MsoNormal\"></p>", "");
             html = html.replaceAll("<p class=\"MsoNormal\"> </p>", "");
+            html = html.replaceAll("<p class=\"MsoNormal\" align=\"justify\"><b>&nbsp;</b></p>", "");
             html = html.replaceAll("<h2><!--\\[if !supportLists\\]-->二、&nbsp;<!--\\[endif\\]--><b>", "");
+            html = html.replaceAll("<p>", "");
             html = html.replaceAll("<b><u>", "<u><font class=\"text-color-11\" color=\"#8bc34a\">");
             html = html.replaceAll("</u></b>", "</font></u>");
             html = html.replaceAll("<b>", "<u><font class=\"text-color-11\" color=\"#8bc34a\">");
