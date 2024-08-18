@@ -20,7 +20,7 @@ public class WebScraper {
     private static void getText() {
         try {
             // 目标网页URL
-            String url = "https://www.ssydt.com/article/68931";
+            String url = "https://www.ssydt.com/article/68978";
             // 使用Jsoup连接到网页
             Document doc = Jsoup.connect(url).get();
             // 使用选择器提取你想要的内容，例如页面的标题
@@ -71,8 +71,8 @@ public class WebScraper {
             html = html.replaceAll("<p>", "");
             html = html.replaceAll("<b><u>", "<u><font class=\"text-color-11\" color=\"#8bc34a\">");
             html = html.replaceAll("</u></b>", "</font></u>");
-            html = html.replaceAll("<b>", "<u><font class=\"text-color-11\" color=\"#8bc34a\">");
-            html = html.replaceAll("</b>", "</font></u>");
+            html = html.replaceAll("<b>", "<font class=\"text-color-11\" color=\"#8bc34a\">");
+            html = html.replaceAll("</b>", "</font>");
             html = html.replaceAll("\n", "\n\n");
             System.out.println("3:" + html);
         } catch (Exception e) {
